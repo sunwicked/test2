@@ -25,15 +25,13 @@ public:
     }
 
     /** @return the next smallest number */
-    int next() {
-        if(current!=NULL){
-            while(current!=NULL){
-                cout<<current->val;
-                node.push(current);
-                current = current->left;
-            }
+    int next() {        
+        while(current!=NULL){
+            cout<<current->val;
+            node.push(current);
+            current = current->left;
         }
-        
+
         prev = node.top();
         node.pop();
         current = prev->right;
