@@ -1,3 +1,4 @@
+// find two numbers which sums to a number in array
 #include<iostream>
 #include<vector>
 #include<algorithm>
