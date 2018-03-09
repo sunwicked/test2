@@ -41,7 +41,7 @@ static class Node()
 
  public  Node addNode(int vertice )
   {
-   Node node = new Node(0);
+   Node node = new Node(vertice);
        g.addNode(node);
        return node
   }
