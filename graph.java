@@ -1,5 +1,4 @@
 // Java program to print BFS traversal from a given source vertex.
-// BFS(int s) traverses vertices reachable from s.
 import java.io.*;
 import java.util.*;
 
@@ -16,42 +15,21 @@ class Graph
        nodes = new ArrayList();
     }
 
-static class Node()
-{
-  int vertexId;
-  boolean visited;
-  List<Node> adjanceyVertices = new ArrayList();
-  
-      Node(int v ){
-       this.vertexId = v;  
-       visited = false; 
-      }
-      
-     public void addVertice(Node value)
-      {
-       adcencyVertices.add(value);
-      }
-      
-      public List<Node> getList()
-      {
-       return adcencyVertices; 
-      }
-      
-}
 
- public  Node addNode(int vertice )
+
+ public  Node addNode(int vertice , Graph g)
   {
    Node node = new Node(vertice);
-       g.addNode(node);
-       return node
+       g.nodes.add(node);
+       return node;
   }
   
-  BFS(int v, Graph g)
+  void bfs(int v, Graph g)
   {
     // visit each node at a level 
     // mark visisted node  - need a visited property
     // 
-Node root =     g.getNodes.get(v);
+Node root =     g.nodes.get(v);
 
 root.visited = true; 
 LinkedList<Node> popQueue = new LinkedList();
@@ -79,7 +57,7 @@ while(popQueue.size()>0)
   }
   
   
-  DFS(int v)
+  void dfs(int v)
   {
   
   }
@@ -90,22 +68,44 @@ while(popQueue.size()>0)
     {
         Graph g = new Graph();
 
-     Node ab =   addNode(0 );     
-                 Node bc =   addNode(1 );
-Node cd                     addNode(2);
-  Node de =                          addNode(3 );
+     Node ab = g.addNode(0,g);     
+     Node bc = g.addNode(1,g);
+     Node cd = g.addNode(2,g);
+     Node de = g.addNode(3,g);
   
-  ab.addVertices(de);
-  de.addVertices(ab);
-  bc.addVertices(ab);
+  ab.addVertice(de);
+  de.addVertice(ab);
+  bc.addVertice(ab);
 
    
 
         System.out.println("Following is Breadth First Traversal "+
                         "(starting from vertex 2)");
 
-        g.BFS(2);
-        g.DFS(2);
+        g.bfs(2,g);
+        g.dfs(2);
     }
+    
+    public class Node{
+  int vertexId;
+  boolean visited;
+  List<Node> adjanceyVertices = new ArrayList();
+  
+      Node(int v ){
+       this.vertexId = v;  
+       visited = false; 
+      }
+      
+     public void addVertice(Node value)
+      {
+       adjanceyVertices.add(value);
+      }
+      
+      public List<Node> getList()
+      {
+       return adjanceyVertices; 
+      }
+      }
+
 }
-// This code is contributed by Aakash Hasija
+
