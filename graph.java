@@ -19,7 +19,7 @@ class Graph
 
  public  Node addNode(int vertice , Graph g)
   {
-   Node node = new Node(vertice);
+       Node node = new Node(vertice);
        g.nodes.add(node);
        return node;
   }
@@ -29,36 +29,58 @@ class Graph
     // visit each node at a level 
     // mark visisted node  - need a visited property
     // 
-Node root =     g.nodes.get(v);
-Set<Node> visited = new HashSet();
-visited.add(root);
-LinkedList<Node> popQueue = new LinkedList();
-// need to maintain a node queue
+    Node root = g.nodes.get(v); 
+    Set<Node> visited = new HashSet();
+    visited.add(root);
+     Deque<Node> popQueue = new ArrayDeque();
+    // need to maintain a node queue
 
-popQueue.add(root);
+    popQueue.add(root);
 
-while(popQueue.size()>0)
-{    // iterate over the connected nodes 
-    Node nxt =popQueue.poll();
-     System.out.println(nxt.vertexId + "");
+    while(popQueue.size()>0)
+    {    // iterate over the connected nodes 
+       Node nxt =popQueue.poll();
+        System.out.println(nxt.vertexId + "");
 
     for(Node node: nxt.getList())
     {
-    if(!visited.contains(node))
-     {
+      if(!visited.contains(node))
+       {
        // mark the visited node true
-      visited.add(node);
-      popQueue.add(node);
+       visited.add(node);
+       popQueue.add(node);
 
      }
     }
  }  
   }
   
+ void dfsUtil(Node node,Set<Node>visited)
+ {
+     visited.add(node);
+     System.out.println(node.vertexId + " ");
+     Iterator<Node> it =  node.getList().listIterator();
+     while(it.hasNext())
+     {
+         Node nex = it.next();
+         if(!visited.contains(nex))
+         {
+             dfsUtil(nex,visited);
+         }
+     }
+ }
   
-  void dfs(int v)
+  void dfs(int v,Graph g)
   {
-  
+   // visit a node check if it is visited 
+   // if not push on stack else pop
+   Node root = g.nodes.get(v);
+   Set<Node> visited =  new HashSet();
+   dfsUtil(root,visited);
+   
+   
+   
+   
   }
 
     // Function to add an edge into the graph
@@ -83,7 +105,7 @@ while(popQueue.size()>0)
                         "(starting from vertex 0)");
 
         g.bfs(0,g);
-        g.dfs(2);
+        g.dfs(2,g);
     }
     
  public class Node{
