@@ -30,8 +30,8 @@ class Graph
     // mark visisted node  - need a visited property
     // 
 Node root =     g.nodes.get(v);
-
-root.visited = true; 
+boolean[] visited = new boolean[g.nodes.size()];
+visited[root.vertexId]=true;
 LinkedList<Node> popQueue = new LinkedList();
 // need to maintain a node queue
 
@@ -44,10 +44,10 @@ while(popQueue.size()>0)
 
     for(Node node: nxt.getList())
     {
-    if(!node.visited)
+    if(!visited[node.vertexId])
      {
        // mark the visited node true
-      node.visited = true;
+      visited[node.vertexId]=true;
       System.out.println(node.vertexId);
       popQueue.add(node);
 
@@ -74,21 +74,24 @@ while(popQueue.size()>0)
      Node de = g.addNode(3,g);
   
   ab.addVertice(de);
-  de.addVertice(ab);
-  bc.addVertice(ab);
+  bc.addVertice(ab); 
+  de.addVertice(cd);
+  de.addVertice(bc);
 
    
 
         System.out.println("Following is Breadth First Traversal "+
-                        "(starting from vertex 2)");
+                        "(starting from vertex 0)");
 
-        g.bfs(2,g);
+        g.bfs(0,g);
         g.dfs(2);
     }
-    
+    /**
+    * How can we prevent creation of multiple nodes with same vertex Ids ? 
+    **/
     public class Node{
  public int vertexId;
-  boolean visited;
+  boolean visited; // can we not use this property
   List<Node> adjanceyVertices = new ArrayList();
   
       Node(int v ){
