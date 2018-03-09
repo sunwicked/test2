@@ -30,8 +30,8 @@ class Graph
     // mark visisted node  - need a visited property
     // 
 Node root =     g.nodes.get(v);
-boolean[] visited = new boolean[g.nodes.size()];
-visited[root.vertexId]=true;
+Set<Node> visited = new HashSet();
+visited.add(root);
 LinkedList<Node> popQueue = new LinkedList();
 // need to maintain a node queue
 
@@ -44,11 +44,10 @@ while(popQueue.size()>0)
 
     for(Node node: nxt.getList())
     {
-    if(!visited[node.vertexId])
+    if(!visited.contains(node))
      {
        // mark the visited node true
-      visited[node.vertexId]=true;
-      System.out.println(node.vertexId);
+      visited.add(node);
       popQueue.add(node);
 
      }
@@ -86,29 +85,25 @@ while(popQueue.size()>0)
         g.bfs(0,g);
         g.dfs(2);
     }
-    /**
-    * How can we prevent creation of multiple nodes with same vertex Ids ? 
-    **/
-    public class Node{
- public int vertexId;
-  boolean visited; // can we not use this property
-  List<Node> adjanceyVertices = new ArrayList();
+    
+ public class Node{
+   public int vertexId;
+   List<Node> adjanceyVertices = new ArrayList();
   
-      Node(int v ){
-       this.vertexId = v;  
-       visited = false; 
-      }
+    Node(int v ){
+        this.vertexId = v;  
+        
+    }
       
-     public void addVertice(Node value)
-      {
+    public void addVertice(Node value){
        adjanceyVertices.add(value);
-      }
+    }
       
       public List<Node> getList()
       {
        return adjanceyVertices; 
       }
-      }
+ }
 
 }
 
