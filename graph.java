@@ -39,10 +39,10 @@ popQueue.add(root);
 
 while(popQueue.size()>0)
 {    // iterate over the connected nodes 
-     v = popQueue.poll();
-     System.out.prinln(v.vertexId);
+    Node nxt =popQueue.poll();
+     System.out.println(nxt.vertexId + "");
 
-    for(Node node: v.getList())
+    for(Node node: nxt.getList())
     {
     if(!node.visited)
      {
@@ -87,7 +87,7 @@ while(popQueue.size()>0)
     }
     
     public class Node{
-  int vertexId;
+ public int vertexId;
   boolean visited;
   List<Node> adjanceyVertices = new ArrayList();
   
