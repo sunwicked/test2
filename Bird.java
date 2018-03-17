@@ -1,4 +1,5 @@
 /**
+* https://practice.geeksforgeeks.org/problems/bird-and-maximum-fruit-gathering/0
 * There are N trees in a circle. Each tree has a fruit value associated avec it.  
 * A bird has to sit on a tree for 0.5 sec to gather all the fruits present on the tree and 
 * then the bird can move to a neighboring tree. It takes the bird 0.5 seconds to move from one tree to another. 
