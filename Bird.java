@@ -43,7 +43,7 @@ class GFG {
          {
              for(j=0;j<m;j++) // trees which can be visited loop
               {
-                  sum = sum + a[(j+1)%n]; // can go more than n need to go circular
+                  sum = sum + a[(j+i)%n]; // can go more than n need to go circular
                                          // nice for circular
               }
               if(max_so_far < sum)
