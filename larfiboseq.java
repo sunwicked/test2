@@ -10,9 +10,10 @@ class GFG {
 	public static void main (String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int inputs = scan.nextInt();
-	int arraySize = 0 ;
-		{	for(int i = 0 ; i < inputs ; i++)
-			 arraySize  = scan.nextInt();
+	   int arraySize = 0 ;
+			
+		    for(int i = 0 ; i < inputs ; i++)
+		{	 arraySize  = scan.nextInt();
 		int[] inArray = new int[arraySize];
 		for(int j = 0 ; j < arraySize ; j++)
 		{
@@ -35,10 +36,11 @@ class GFG {
 	{
 	    if(map.contains(array[i]))
 	    {
-	        System.out.print(array[i]);
+	        System.out.print(array[i]+ " ");
 	    }
+	   
 	}
-	System.out.println("");
+  System.out.println(" ");
 	}
 	public static Set<Integer> getFiboMap(int largest)
 	{
